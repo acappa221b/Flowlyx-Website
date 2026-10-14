@@ -13,6 +13,8 @@ Abra http://localhost:3000.
 ```bash
 npm run deploy
 ```
+Passo a passo completo da publicação oficial: [`docs/publicacao.md`](docs/publicacao.md).
+
 Os scripts usam `npx firebase-tools`, então não precisa instalar nada global. Só `npx firebase-tools login` uma vez.
 
 Antes da primeira publicação completa:
