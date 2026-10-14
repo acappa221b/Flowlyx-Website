@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+/* Tokens da marca. Explicação em docs/design/sistema-de-design.md */
+@theme {
+  --color-ink-950: #0a1220;
+  --color-ink-900: #0f1a2b;
+  --color-ink-800: #152238;
+  --color-ink-700: #1f2f4a;
+  --color-ink-600: #2c3f5e;
+
+  --color-paper: #ffffff;
+  --color-paper-2: #f4f7fb;
+  --color-line: #e3e9f1;
+
+  --color-text: #0f172a;
+  --color-text-2: #4b5970;
+  --color-text-3: #7b879a;
+  --color-text-inverse: #f3f6fa;
+  --color-text-inverse-2: #aab6c8;
+
+  --color-brand-cyan: #38c6f4;
+  --color-brand-indigo: #6366f1;
+  --color-accent: #2563eb;
+  --color-accent-strong: #1d4ed8;
+  --color-accent-dark: #5ea8ff;
+  --color-ok: #16a34a;
+  --color-warn: #d97706;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-manrope), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+
+  --shadow-card: 0 1px 2px rgb(15 23 42 / 0.04), 0 8px 24px -12px rgb(15 23 42 / 0.12);
+}
+
+:root {
+  --brand-gradient: linear-gradient(90deg, #38c6f4 0%, #6366f1 100%);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: #cfe6ff;
+  color: var(--color-ink-950);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Utilitários de marca */
+.brand-gradient-text {
+  background: var(--brand-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.brand-gradient-bar {
+  background: var(--brand-gradient);
+}
+
+.hero-glow {
+  background:
+    radial-gradient(60% 50% at 50% 0%, rgb(56 198 244 / 0.14) 0%, rgb(56 198 244 / 0) 70%),
+    radial-gradient(40% 40% at 85% 20%, rgb(99 102 241 / 0.12) 0%, rgb(99 102 241 / 0) 70%);
+}
+
+.grid-lines {
+  background-image:
+    linear-gradient(rgb(255 255 255 / 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(255 255 255 / 0.035) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(70% 70% at 50% 30%, #000 30%, transparent 100%);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.rise {
+  animation: rise 0.5s ease-out both;
+}
+.rise-2 {
+  animation: rise 0.5s ease-out 0.08s both;
+}
+.rise-3 {
+  animation: rise 0.5s ease-out 0.16s both;
+}

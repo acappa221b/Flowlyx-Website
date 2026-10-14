@@ -1,0 +1,10 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Os pedidos de orçamento são gravados só pela Cloud Function (Admin SDK).
+    // Ninguém lê ou escreve pelo navegador.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
