@@ -8,8 +8,9 @@
     "start": "next start",
     "lint": "eslint",
     "functions:build": "npm --prefix functions run build",
-    "deploy": "next build && npm --prefix functions run build && firebase deploy --only hosting,functions,firestore:rules",
-    "deploy:hosting": "next build && firebase deploy --only hosting"
+    "deploy": "next build && npm --prefix functions run build && npx --yes firebase-tools deploy --only hosting,functions,firestore:rules",
+    "deploy:hosting": "next build && npx --yes firebase-tools deploy --only hosting",
+    "deploy:preview": "next build && npx --yes firebase-tools hosting:channel:deploy preview --expires 7d"
   },
   "dependencies": {
     "next": "16.4.0",

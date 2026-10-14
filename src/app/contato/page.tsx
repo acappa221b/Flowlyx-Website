@@ -1,18 +1,9 @@
 import type { Metadata } from "next";
 import { ContactForm } from "@/components/ContactForm";
 import { Container, Eyebrow, Heading, Lead } from "@/components/ui";
-import { site } from "@/content/site";
+import { contato, seo, site } from "@/content/site";
 
-export const metadata: Metadata = {
-  title: "Pedir orçamento",
-  description: "Descreva o software que você procura. Estudamos o seu caso antes de responder, sem compromisso.",
-};
-
-const passos = [
-  { titulo: "Você descreve", texto: "Tipo de sistema e o problema, em poucas linhas." },
-  { titulo: "Nós estudamos", texto: "Lemos com calma e pesquisamos o seu caso antes de falar com você." },
-  { titulo: "Conversamos", texto: "Respondemos por e-mail ou WhatsApp com perguntas e um caminho." },
-];
+export const metadata: Metadata = seo.paginas.contato;
 
 export default function ContatoPage() {
   return (
@@ -20,13 +11,12 @@ export default function ContatoPage() {
       <Container className="py-16 md:py-20">
         <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
           <div>
-            <Eyebrow>Orçamento</Eyebrow>
-            <Heading as="h1">Conte o que você precisa.</Heading>
-            <Lead className="mt-5 text-text-2">
-              Sem formulário gigante. Diga o tipo de software e descreva o problema. O resto a gente pergunta.
-            </Lead>
+            <Eyebrow>{contato.eyebrow}</Eyebrow>
+            <Heading as="h1">{contato.titulo}</Heading>
+            <span className="brand-gradient-bar mt-5 block h-[3px] w-12 rounded-full" aria-hidden="true" />
+            <Lead className="mt-5 text-text-2">{contato.subtitulo}</Lead>
             <ol className="mt-10 space-y-6">
-              {passos.map((p, i) => (
+              {contato.passos.map((p, i) => (
                 <li key={p.titulo} className="flex gap-4">
                   <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-paper-2 font-display text-sm font-extrabold text-accent ring-1 ring-line">
                     {i + 1}
@@ -39,13 +29,13 @@ export default function ContatoPage() {
               ))}
             </ol>
             <p className="mt-10 text-sm text-text-2">
-              Prefere e-mail?{" "}
-              <a href={`mailto:${site.email}`} className="font-semibold text-accent underline-offset-4 hover:underline">
+              {contato.prefereEmail}{" "}
+              <a href={`mailto:${site.email}`} className="inline-block py-2 font-semibold text-accent underline-offset-4 hover:underline">
                 {site.email}
               </a>
             </p>
           </div>
-          <div className="rounded-md border border-line bg-paper p-6 shadow-card sm:p-8">
+          <div className="rounded-md border border-line bg-surface p-6 sm:p-8">
             <ContactForm />
           </div>
         </div>

@@ -1,14 +1,14 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { site, tiposDeSoftware } from "@/content/site";
+import { formulario as f, site, tiposDeSoftware } from "@/content/site";
 
 type Estado = "idle" | "enviando" | "ok" | "erro";
 
 const endpoint = process.env.NEXT_PUBLIC_CONTATO_URL ?? "/api/contato";
 
 const campo =
-  "mt-1.5 block w-full rounded-sm border border-line bg-paper px-3.5 py-2.5 text-[15px] text-text placeholder:text-text-3 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20";
+  "mt-1.5 block w-full rounded-sm border border-line bg-surface px-3.5 py-3 text-[15px] text-text placeholder:text-text-3 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20";
 const rotulo = "block text-sm font-semibold text-text";
 
 export function ContactForm() {
@@ -29,23 +29,22 @@ export function ContactForm() {
       });
       if (!resp.ok) {
         const corpo = (await resp.json().catch(() => null)) as { erro?: string } | null;
-        throw new Error(corpo?.erro ?? "Não foi possível enviar agora.");
+        throw new Error(corpo?.erro ?? f.erroPadrao);
       }
       setEstado("ok");
       form.reset();
     } catch (err) {
       setEstado("erro");
-      setErro(err instanceof Error ? err.message : "Não foi possível enviar agora.");
+      setErro(err instanceof Error ? err.message : f.erroPadrao);
     }
   }
 
   if (estado === "ok") {
     return (
       <div role="status" className="rounded-md border border-green-200 bg-green-50 p-6">
-        <p className="font-display text-xl font-extrabold text-green-900">Recebemos o seu pedido.</p>
+        <p className="font-display text-xl font-extrabold text-green-900">{f.sucessoTitulo}</p>
         <p className="mt-2 text-[15px] leading-relaxed text-green-900/80">
-          Vamos estudar o que você descreveu e responder pelo e-mail informado. Se preferir, escreva
-          direto para{" "}
+          {f.sucessoTexto}{" "}
           <a className="font-semibold underline" href={`mailto:${site.email}`}>
             {site.email}
           </a>
@@ -56,41 +55,41 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={enviar} className="space-y-5" noValidate={false}>
+    <form onSubmit={enviar} className="space-y-5">
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor="nome" className={rotulo}>
-            Seu nome
+            {f.nome}
           </label>
           <input id="nome" name="nome" required autoComplete="name" maxLength={120} className={campo} />
         </div>
         <div>
           <label htmlFor="email" className={rotulo}>
-            E-mail
+            {f.email}
           </label>
           <input id="email" name="email" type="email" required autoComplete="email" maxLength={160} className={campo} />
         </div>
         <div>
           <label htmlFor="empresa" className={rotulo}>
-            Empresa <span className="font-normal text-text-3">(opcional)</span>
+            {f.empresa} <span className="font-normal text-text-3">{f.opcional}</span>
           </label>
           <input id="empresa" name="empresa" autoComplete="organization" maxLength={120} className={campo} />
         </div>
         <div>
           <label htmlFor="whatsapp" className={rotulo}>
-            WhatsApp <span className="font-normal text-text-3">(opcional)</span>
+            {f.whatsapp} <span className="font-normal text-text-3">{f.opcional}</span>
           </label>
-          <input id="whatsapp" name="whatsapp" type="tel" autoComplete="tel" maxLength={30} placeholder="(00) 00000-0000" className={campo} />
+          <input id="whatsapp" name="whatsapp" type="tel" autoComplete="tel" maxLength={30} placeholder={f.whatsappPlaceholder} className={campo} />
         </div>
       </div>
 
       <div>
         <label htmlFor="tipo" className={rotulo}>
-          Que tipo de software você procura?
+          {f.tipo}
         </label>
         <select id="tipo" name="tipo" required defaultValue="" className={campo}>
           <option value="" disabled>
-            Escolha uma opção
+            {f.tipoPlaceholder}
           </option>
           {tiposDeSoftware.map((t) => (
             <option key={t} value={t}>
@@ -102,7 +101,7 @@ export function ContactForm() {
 
       <div>
         <label htmlFor="descricao" className={rotulo}>
-          Descreva em poucas linhas
+          {f.descricao}
         </label>
         <textarea
           id="descricao"
@@ -111,21 +110,21 @@ export function ContactForm() {
           rows={5}
           minLength={20}
           maxLength={3000}
-          placeholder="O que a sua empresa faz, qual problema o sistema precisa resolver e quem vai usar."
+          placeholder={f.descricaoPlaceholder}
           className={campo}
         />
-        <p className="mt-1.5 text-xs text-text-3">Quanto mais concreto, melhor estudamos o seu caso antes de responder.</p>
+        <p className="mt-1.5 text-xs text-text-3">{f.descricaoDica}</p>
       </div>
 
       {/* Campo-armadilha contra robôs. Pessoas não veem. */}
       <div className="hidden" aria-hidden="true">
-        <label htmlFor="site">Site</label>
+        <label htmlFor="site">{f.armadilha}</label>
         <input id="site" name="site" tabIndex={-1} autoComplete="off" />
       </div>
 
       {estado === "erro" && (
         <p role="alert" className="rounded-sm border border-red-200 bg-red-50 px-3.5 py-2.5 text-sm text-red-800">
-          {erro} Você também pode escrever para{" "}
+          {erro} {f.erroComplemento}{" "}
           <a className="font-semibold underline" href={`mailto:${site.email}`}>
             {site.email}
           </a>
@@ -139,9 +138,9 @@ export function ContactForm() {
           disabled={estado === "enviando"}
           className="inline-flex h-12 items-center justify-center rounded-sm bg-accent px-6 text-base font-semibold text-white transition-colors hover:bg-accent-strong disabled:opacity-60"
         >
-          {estado === "enviando" ? "Enviando…" : "Enviar pedido"}
+          {estado === "enviando" ? f.enviando : f.enviar}
         </button>
-        <p className="text-xs text-text-3">Sem compromisso. Seus dados ficam só com a Flowlyx.</p>
+        <p className="text-xs text-text-3">{f.rodape}</p>
       </div>
     </form>
   );

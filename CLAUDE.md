@@ -6,7 +6,7 @@ Site da Flowlyx, empresa de desenvolvimento de software sob medida. Mostra o que
 - Domínio: `flowlyx.com.br`. Login do Axis: `https://axis.flowlyx.com.br`. SóPede: `https://sopede.com.br`.
 - Firebase: projeto `flowlyx-website` (nº 345573944019), plano Blaze. Hosting serve a pasta `out/` (exportação estática do Next). Function `contato` em `southamerica-east1` recebe o formulário e envia e-mail.
 - E-mail de contato: `flowlyxdev@gmail.com`.
-- Sócios: Alexandre (acappa221b) e Paulo (paulosc).
+- Sócios: Alexandre (acappa221b) e Paulo Sérgio Carvalho (paulosc). A Flowlyx conta a história **desde 2008**. O rosto do site é o Paulo (ficha em `docs/pesquisa/equipe.md`). O Alexandre não quer aparecer com nome: a experiência dele entra como "equipe" (GeEm Next, MRP, RH, relés ethernet, soluções industriais).
 - Idioma do site e dos commits: português do Brasil.
 
 ## Stack
@@ -29,6 +29,7 @@ npm run deploy     # build + firebase deploy (hosting + functions)
 ## Regras
 1. **Gauntlet Loop obrigatório** para qualquer mudança visível: builder → gauntlet-critic → corrigir → repetir até APROVADO. Ver `docs/gauntlet-loop.md`.
 2. **Nenhum número ou afirmação sem fonte** em `docs/pesquisa/`. Não inventar clientes, métricas ou prazos.
+2b. **Produtos mostram só o que já funciona em produção.** Nada de métricas de desenvolvimento no site (testes, commits, telas, linhas de código). O Axis é a exceção: aparece como "Em construção", com a lista do que está sendo construído.
 3. **Confidencial**: GeEm Next é exclusivo de um cliente. Nunca publicar nome, CNPJ, pessoas ou valores. Só "indústria de componentes de borracha e plástico, cerca de 40 colaboradores".
 4. Todo texto vive em `src/content/`. Componentes não têm texto fixo.
 5. Só tokens de cor de `src/app/globals.css`. Degradê da marca no máximo 1 vez por página.

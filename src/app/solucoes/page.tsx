@@ -1,14 +1,10 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/PageHero";
-import { ArrowIcon, Button, Card, Heading, Section } from "@/components/ui";
+import { Card, ChamadaFinal, Heading, Section } from "@/components/ui";
 import { solucoes } from "@/content/servicos";
-import { cta } from "@/content/site";
+import { chamadas, seo } from "@/content/site";
 
-export const metadata: Metadata = {
-  title: "Soluções",
-  description:
-    "Sistemas web, aplicativos, software desktop e industrial, integrações fiscais, automação com IA e modernização de sistemas antigos.",
-};
+export const metadata: Metadata = seo.paginas.solucoes;
 
 export default function SolucoesPage() {
   return (
@@ -16,7 +12,8 @@ export default function SolucoesPage() {
       <PageHero {...solucoes.hero} />
 
       <Section>
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        <Heading>{solucoes.tiposTitulo}</Heading>
+        <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {solucoes.tipos.map((t) => (
             <Card key={t.titulo} className="flex flex-col">
               <Heading as="h3">{t.titulo}</Heading>
@@ -34,7 +31,7 @@ export default function SolucoesPage() {
             <p className="mt-5 text-sm font-semibold uppercase tracking-[0.14em] text-text-3">{solucoes.setores.titulo}</p>
             <ul className="mt-3 flex flex-wrap gap-2">
               {solucoes.setores.itens.map((s) => (
-                <li key={s} className="rounded-full border border-line bg-paper px-3 py-1 text-sm text-text-2">
+                <li key={s} className="rounded-full border border-line bg-surface px-3 py-1 text-sm text-text-2">
                   {s}
                 </li>
               ))}
@@ -52,16 +49,7 @@ export default function SolucoesPage() {
       </Section>
 
       <Section>
-        <div className="flex flex-col items-start gap-6 rounded-md border border-line bg-ink-950 p-8 text-text-inverse md:flex-row md:items-center md:justify-between md:p-10">
-          <div>
-            <Heading className="text-text-inverse">Não achou o seu caso na lista?</Heading>
-            <p className="mt-2 text-text-inverse-2">Descreva o problema. Se der para resolver com software, a gente constrói.</p>
-          </div>
-          <Button href={cta.primario.href} size="lg">
-            {cta.primario.label}
-            <ArrowIcon />
-          </Button>
-        </div>
+        <ChamadaFinal {...chamadas.solucoes} />
       </Section>
     </>
   );

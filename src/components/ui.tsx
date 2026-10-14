@@ -1,7 +1,8 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { cta } from "@/content/site";
 
-/* Container padrão: 1152px, gutter 16/24px */
+/* Container padrão: 1152px, gutter 20/24px */
 export function Container({ children, className = "" }: { children: ReactNode; className?: string }) {
   return <div className={`mx-auto w-full max-w-6xl px-5 sm:px-6 ${className}`}>{children}</div>;
 }
@@ -62,7 +63,7 @@ export function Lead({ children, className = "" }: { children: ReactNode; classN
 type ButtonProps = {
   href: string;
   children: ReactNode;
-  variant?: "primary" | "secondary" | "ghost" | "inverse";
+  variant?: "primary" | "secondary" | "inverse";
   size?: "md" | "lg";
   external?: boolean;
   className?: string;
@@ -81,15 +82,14 @@ export function Button({
   const sizes = { md: "h-11 px-5 text-[15px]", lg: "h-12 px-6 text-base" };
   const variants = {
     primary: "bg-accent text-white hover:bg-accent-strong",
-    secondary: "border border-line bg-paper text-text hover:border-text-3 hover:bg-paper-2",
-    ghost: "text-text-2 hover:text-text hover:bg-paper-2",
-    inverse: "border border-ink-600 bg-transparent text-text-inverse hover:bg-ink-800 hover:border-ink-600",
+    secondary: "border border-line bg-surface text-text hover:border-text-3 hover:bg-paper-2",
+    inverse: "border border-text-inverse/30 bg-transparent text-text-inverse hover:bg-ink-800 hover:border-text-inverse/50",
   };
   const cls = `${base} ${sizes[size]} ${variants[variant]} ${className}`;
-  const isExternal = external ?? /^https?:/.test(href);
+  const isExternal = external ?? /^(https?:|mailto:)/.test(href);
   if (isExternal) {
     return (
-      <a href={href} className={cls} target="_blank" rel="noopener noreferrer">
+      <a href={href} className={cls} target={href.startsWith("mailto:") ? undefined : "_blank"} rel="noopener noreferrer">
         {children}
       </a>
     );
@@ -117,13 +117,19 @@ export function ExternalIcon({ className = "" }: { className?: string }) {
   );
 }
 
-/* Card neutro, borda fina, sombra só no hover */
-export function Card({ children, className = "", tone = "paper" }: { children: ReactNode; className?: string; tone?: "paper" | "ink" }) {
+type CardProps = {
+  children: ReactNode;
+  className?: string;
+  tone?: "paper" | "ink";
+};
+
+/* Card neutro, borda fina, sem sombra (sombra só em cards clicáveis, que têm estilo próprio) */
+export function Card({ children, className = "", tone = "paper" }: CardProps) {
   const tones = {
-    paper: "border-line bg-paper hover:shadow-card",
+    paper: "border-line bg-surface",
     ink: "border-ink-700 bg-ink-900",
   };
-  return <div className={`rounded-md border p-6 transition-shadow duration-200 ${tones[tone]} ${className}`}>{children}</div>;
+  return <div className={`rounded-md border p-6 ${tones[tone]} ${className}`}>{children}</div>;
 }
 
 type BadgeTone = "ok" | "info" | "warn" | "neutral";
@@ -135,20 +141,36 @@ export function Badge({ children, tone = "neutral" }: { children: ReactNode; ton
     neutral: "bg-paper-2 text-text-2 ring-line",
   };
   return (
-    <span className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-xs font-semibold ring-1 ring-inset ${tones[tone]}`}>
+    <span
+      className={`inline-flex items-center gap-1.5 whitespace-nowrap rounded-full px-2.5 py-0.5 text-xs font-semibold ring-1 ring-inset ${tones[tone]}`}
+    >
       {children}
     </span>
   );
 }
 
 /* Número grande + rótulo */
-export function Stat({ valor, rotulo, tone = "dark" }: { valor: string; rotulo: string; tone?: "dark" | "light" }) {
+export function Stat({ valor, rotulo }: { valor: string; rotulo: string }) {
   return (
     <div>
-      <p className={`font-display text-3xl font-extrabold tracking-[-0.02em] sm:text-4xl ${tone === "light" ? "text-text-inverse" : "text-text"}`}>
-        {valor}
-      </p>
-      <p className={`mt-1 text-sm leading-snug ${tone === "light" ? "text-text-inverse-2" : "text-text-2"}`}>{rotulo}</p>
+      <p className="font-display text-3xl font-extrabold tracking-[-0.02em] text-text sm:text-4xl">{valor}</p>
+      <p className="mt-1 text-sm leading-snug text-text-2">{rotulo}</p>
+    </div>
+  );
+}
+
+/* Chamada final padrão das páginas internas: caixa navy + CTA primário */
+export function ChamadaFinal({ titulo, texto }: { titulo: string; texto: string }) {
+  return (
+    <div className="flex flex-col items-start gap-6 rounded-md bg-ink-950 p-8 text-text-inverse md:flex-row md:items-center md:justify-between md:p-10">
+      <div>
+        <Heading className="text-text-inverse">{titulo}</Heading>
+        <p className="mt-2 text-text-inverse-2">{texto}</p>
+      </div>
+      <Button href={cta.primario.href} size="lg">
+        {cta.primario.label}
+        <ArrowIcon />
+      </Button>
     </div>
   );
 }

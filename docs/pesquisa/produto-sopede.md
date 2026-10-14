@@ -25,7 +25,7 @@ Restaurantes, lanchonetes, pizzarias, bares, marmitarias, comida por quilo. Foco
 - Admin da plataforma: MRR, GMV, aprovação de lojas, cupons, representantes.
 
 ## Stack
-React 19 + Vite + TypeScript (painel e cliente web PWA), Flutter (app, v2.8.0), Firebase (Auth, Firestore em `southamerica-east1`, Functions Node 22, Hosting, FCM), agente de impressão .NET, agente WhatsApp Node/Baileys.
+React 19 + Vite + TypeScript (painel e cliente web PWA), Flutter (app, v2.8.0; Android pronto, iOS configurado sem build; publicação na loja não confirmada no repo), Firebase (Auth, Firestore em `southamerica-east1`, Functions Node 22, Hosting, FCM), agente de impressão .NET, agente WhatsApp Node/Baileys.
 
 ## Números reais
 - 94 Cloud Functions · ~50 coleções com regras · 53 telas (34 painel + 9 web + 10 app)

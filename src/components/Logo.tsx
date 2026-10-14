@@ -1,3 +1,5 @@
+import { site } from "@/content/site";
+
 type LogoProps = {
   /** Altura do símbolo em px. */
   size?: number;
@@ -22,7 +24,7 @@ export function Logo({ size = 28, wordmark = true, tone = "dark", className = ""
         height={size}
         viewBox="0 0 64 64"
         role="img"
-        aria-label="Flowlyx"
+        aria-label={site.nome}
         className="shrink-0"
       >
         <defs>
@@ -48,7 +50,7 @@ export function Logo({ size = 28, wordmark = true, tone = "dark", className = ""
           className="font-display text-[1.25rem] font-extrabold tracking-[-0.02em]"
           style={{ color: ink }}
         >
-          Flowlyx
+          {site.nome}
         </span>
       )}
     </span>

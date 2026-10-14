@@ -5,9 +5,9 @@
   "engines": { "node": "22" },
   "scripts": {
     "build": "tsc",
-    "serve": "npm run build && firebase emulators:start --only functions",
-    "deploy": "firebase deploy --only functions",
-    "logs": "firebase functions:log"
+    "serve": "npm run build && npx --yes firebase-tools emulators:start --only functions",
+    "deploy": "npx --yes firebase-tools deploy --only functions",
+    "logs": "npx --yes firebase-tools functions:log"
   },
   "dependencies": {
     "firebase-admin": "^13.0.0",

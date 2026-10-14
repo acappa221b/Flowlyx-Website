@@ -1,5 +1,7 @@
 import Link from "next/link";
+import { CheckList } from "@/components/CheckList";
 import { ProductCard } from "@/components/ProductCard";
+import { SecurityIcon } from "@/components/SecurityIcon";
 import { ArrowIcon, Button, Card, Container, Eyebrow, Heading, Lead, Section, Stat } from "@/components/ui";
 import { produtos } from "@/content/produtos";
 import { cases } from "@/content/servicos";
@@ -15,9 +17,7 @@ export default function Home() {
         <div className="grid-lines absolute inset-0" aria-hidden="true" />
         <Container className="relative py-20 md:py-28">
           <div className="max-w-3xl">
-            <p className="rise mb-4 text-xs font-semibold uppercase tracking-[0.14em] text-accent-dark">
-              {home.hero.eyebrow}
-            </p>
+            <p className="rise mb-4 text-xs font-semibold uppercase tracking-[0.14em] text-accent-dark">{home.hero.eyebrow}</p>
             <Heading as="h1" className="rise text-text-inverse">
               {home.hero.titulo}
             </Heading>
@@ -48,7 +48,7 @@ export default function Home() {
       {/* Pilares */}
       <Section>
         <div className="max-w-2xl">
-          <Eyebrow>O jeito Flowlyx</Eyebrow>
+          <Eyebrow>{home.pilares.eyebrow}</Eyebrow>
           <Heading>{home.pilares.titulo}</Heading>
         </div>
         <div className="mt-12 grid gap-5 md:grid-cols-3">
@@ -68,14 +68,15 @@ export default function Home() {
       <Section tone="paper-2" id="produtos">
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div className="max-w-2xl">
-            <Eyebrow>Produtos</Eyebrow>
-            <Heading>Sistemas que já construímos e mantemos</Heading>
-            <Lead className="mt-4 text-text-2">
-              A melhor prova de que entregamos é o que já está rodando.
-            </Lead>
+            <Eyebrow>{home.produtos.eyebrow}</Eyebrow>
+            <Heading>{home.produtos.titulo}</Heading>
+            <Lead className="mt-4 text-text-2">{home.produtos.subtitulo}</Lead>
           </div>
-          <Link href="/produtos" className="inline-flex items-center gap-1.5 text-sm font-semibold text-accent">
-            Ver todos os produtos
+          <Link
+            href="/produtos"
+            className="inline-flex items-center gap-1.5 whitespace-nowrap py-3 text-sm font-semibold text-accent"
+          >
+            {home.produtos.link}
             <ArrowIcon />
           </Link>
         </div>
@@ -89,7 +90,7 @@ export default function Home() {
       {/* Processo */}
       <Section>
         <div className="max-w-2xl">
-          <Eyebrow>Processo</Eyebrow>
+          <Eyebrow>{home.processo.eyebrow}</Eyebrow>
           <Heading>{home.processo.titulo}</Heading>
           <Lead className="mt-4 text-text-2">{home.processo.subtitulo}</Lead>
         </div>
@@ -97,7 +98,9 @@ export default function Home() {
           {home.processo.passos.map((passo, i) => (
             <li key={passo.titulo} className="relative border-t-2 border-line pt-6">
               <span className="absolute -top-0.5 left-0 h-0.5 w-12 bg-accent" aria-hidden="true" />
-              <p className="font-display text-sm font-extrabold text-accent">Passo {i + 1}</p>
+              <p className="font-display text-sm font-extrabold text-accent">
+                {home.processo.rotuloPasso} {i + 1}
+              </p>
               <h3 className="mt-2 font-display text-xl font-extrabold tracking-[-0.01em]">{passo.titulo}</h3>
               <p className="mt-2 text-[15px] leading-relaxed text-text-2">{passo.texto}</p>
             </li>
@@ -116,10 +119,7 @@ export default function Home() {
           {home.seguranca.itens.map((item) => (
             <Card key={item.titulo} tone="ink">
               <span className="flex h-9 w-9 items-center justify-center rounded-sm bg-ink-800 text-accent-dark" aria-hidden="true">
-                <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
-                  <path d="M10 2.5 4 5v4.5c0 3.6 2.6 6.6 6 7.5 3.4-.9 6-3.9 6-7.5V5l-6-2.5Z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
-                  <path d="m7.5 10 1.8 1.8L12.8 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
+                <SecurityIcon nome={item.icone} />
               </span>
               <h3 className="mt-4 font-display text-lg font-extrabold tracking-[-0.01em] text-text-inverse">{item.titulo}</h3>
               <p className="mt-2 text-[15px] leading-relaxed text-text-inverse-2">{item.texto}</p>
@@ -132,19 +132,18 @@ export default function Home() {
       <Section>
         <div className="grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:items-center">
           <div>
-            <Eyebrow>Case</Eyebrow>
-            <p className="text-sm text-text-3">{caseDestaque.setor}</p>
-            <Heading className="mt-3">{caseDestaque.titulo}</Heading>
+            <Eyebrow>{home.caseDestaque.eyebrow}</Eyebrow>
+            <Heading>{caseDestaque.titulo}</Heading>
+            <p className="mt-3 text-sm text-text-3">{caseDestaque.setor}</p>
             <p className="mt-5 text-[15px] leading-relaxed text-text-2">{caseDestaque.solucao}</p>
-            <Link href="/cases" className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-accent">
-              Ver todos os cases
+            <Link href="/cases" className="mt-6 inline-flex items-center gap-1.5 py-3 text-sm font-semibold text-accent">
+              {home.caseDestaque.link}
               <ArrowIcon />
             </Link>
           </div>
-          <div className="grid grid-cols-2 gap-5 rounded-md border border-line bg-paper-2 p-6 sm:p-8">
-            {caseDestaque.resultados.map((r) => (
-              <Stat key={r.rotulo} valor={r.valor} rotulo={r.rotulo} />
-            ))}
+          <div className="rounded-md border border-line bg-surface p-6 sm:p-8">
+            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.14em] text-text-3">{cases.rotulos.funciona}</p>
+            <CheckList itens={caseDestaque.funciona} />
           </div>
         </div>
       </Section>
@@ -159,7 +158,7 @@ export default function Home() {
               {cta.primario.label}
               <ArrowIcon />
             </Button>
-            <Button href={`mailto:${site.email}`} size="lg" variant="secondary" external>
+            <Button href={`mailto:${site.email}`} size="lg" variant="secondary">
               {site.email}
             </Button>
           </div>

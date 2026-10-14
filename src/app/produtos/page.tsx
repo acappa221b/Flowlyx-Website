@@ -1,24 +1,16 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { PageHero } from "@/components/PageHero";
-import { ArrowIcon, Badge, Button, ExternalIcon, Heading, Section, Stat } from "@/components/ui";
-import { produtos, statusLabel } from "@/content/produtos";
+import { CheckList } from "@/components/CheckList";
+import { ArrowIcon, Badge, Button, ExternalIcon, Heading, Section } from "@/components/ui";
+import { badgeTone, paginaProdutos, produtos, statusLabel } from "@/content/produtos";
+import { seo } from "@/content/site";
 
-export const metadata: Metadata = {
-  title: "Produtos",
-  description: "Axis, SóPede, Contabilidade e GeEm Next: os sistemas que a Flowlyx construiu e mantém.",
-};
-
-const badgeTone = { "em-producao": "ok", "no-ar": "ok", "em-desenvolvimento": "info", exclusivo: "neutral" } as const;
+export const metadata: Metadata = seo.paginas.produtos;
 
 export default function ProdutosPage() {
   return (
     <>
-      <PageHero
-        eyebrow="Produtos"
-        titulo="O que já está rodando"
-        subtitulo="Quatro sistemas, quatro setores diferentes. Três você pode acessar hoje. O quarto é exclusivo de um cliente."
-      />
+      <PageHero eyebrow={paginaProdutos.eyebrow} titulo={paginaProdutos.titulo} subtitulo={paginaProdutos.subtitulo} />
       {produtos.map((p, i) => (
         <Section key={p.slug} tone={i % 2 ? "paper-2" : "paper"} id={p.slug}>
           <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:items-start">
@@ -33,34 +25,34 @@ export default function ProdutosPage() {
               <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-text-2">{p.descricao}</p>
               <div className="mt-7 flex flex-wrap gap-3">
                 {p.slug === "geem-next" ? (
-                  <Button href="/cases/#geem-next" variant="secondary">
-                    Ver o case
+                  <Button href="/cases/#geem-next" variant="secondary" className="w-full sm:w-auto">
+                    {paginaProdutos.verCase}
                     <ArrowIcon />
                   </Button>
                 ) : (
-                  <Link href={`/produtos/${p.slug}/`} className="inline-flex h-11 items-center gap-2 rounded-sm bg-accent px-5 text-[15px] font-semibold text-white hover:bg-accent-strong">
-                    Conhecer o {p.nome}
+                  <Button href={`/produtos/${p.slug}/`} className="w-full sm:w-auto">
+                    {paginaProdutos.conhecer} {p.nome}
                     <ArrowIcon />
-                  </Link>
+                  </Button>
                 )}
                 {p.site && (
-                  <Button href={p.site.href} variant="secondary">
+                  <Button href={p.site.href} variant="secondary" className="w-full sm:w-auto">
                     {p.site.label}
                     <ExternalIcon />
                   </Button>
                 )}
                 {p.acesso && (
-                  <Button href={p.acesso.href} variant="secondary">
+                  <Button href={p.acesso.href} variant="secondary" className="w-full sm:w-auto">
                     {p.acesso.label}
                     <ExternalIcon />
                   </Button>
                 )}
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-6 rounded-md border border-line bg-paper p-6">
-              {p.numeros.map((n) => (
-                <Stat key={n.rotulo} valor={n.valor} rotulo={n.rotulo} />
-              ))}
+            <div className="rounded-md border border-line bg-surface p-6">
+              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.14em] text-text-3">{p.funcionaTitulo}</p>
+              <CheckList itens={p.funciona.slice(0, 6)} />
+              {p.funciona.length > 6 && <p className="mt-4 text-sm text-text-3">{paginaProdutos.maisNaPagina}</p>}
             </div>
           </div>
         </Section>

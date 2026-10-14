@@ -15,14 +15,16 @@ Fonte da verdade: `src/app/globals.css` (tokens). Este arquivo explica o porquê
 | `--ink-900` | `#0F1A2B` | fundo escuro padrão |
 | `--ink-800` | `#152238` | superfície escura |
 | `--ink-700` | `#1F2F4A` | borda em fundo escuro |
-| `--paper` | `#FFFFFF` | fundo claro |
-| `--paper-2` | `#F4F7FB` | seção alternada |
-| `--line` | `#E3E9F1` | borda em fundo claro |
+| `--paper` | `#F2F6FB` | fundo claro da página (azul-gelo, não branco) |
+| `--paper-2` | `#E9EFF7` | seção alternada, um tom mais fundo |
+| `--surface` | `#FFFFFF` | cartões, cabeçalho, campos: branco só em cima do azul-gelo |
+| `--line` | `#D9E2EC` | borda em fundo claro |
 | `--text` | `#0F172A` | texto principal |
 | `--text-2` | `#4B5970` | texto secundário |
+| `--text-3` | `#5B6B82` | texto de apoio (contraste AA: 5,4:1 no branco) |
 | `--brand-cyan` | `#38C6F4` | ponta clara do degradê |
 | `--brand-indigo` | `#6366F1` | ponta escura do degradê |
-| `--accent` | `#2563EB` | CTA e links em fundo claro |
+| `--accent` | `#1D4ED8` | CTA e links em fundo claro (6,8:1 sobre `--paper-2`) |
 | `--accent-dark` | `#5EA8FF` | links em fundo escuro |
 
 O degradê `linear-gradient(90deg, #38C6F4, #6366F1)` é **exclusivo** para: a onda do logo, o sublinhado da marca e no máximo 1 detalhe por página. Nunca como fundo de seção.

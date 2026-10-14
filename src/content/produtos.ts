@@ -1,15 +1,24 @@
 /**
- * Produtos da Flowlyx. Cada número tem fonte em docs/pesquisa/produto-*.md.
+ * Produtos da Flowlyx. Cada funcionalidade listada já existe e funciona (fonte: docs/pesquisa/produto-*.md).
+ * Regra do Alexandre (14/10/2026): só funcionalidades em produção; nada de métricas de desenvolvimento
+ * (testes, commits, telas, semanas). O Axis é a exceção: está em construção e é marcado assim.
  * GeEm Next é exclusivo de um cliente: nunca citar nome, CNPJ ou pessoas.
  */
 
 export type StatusProduto = "em-producao" | "no-ar" | "em-desenvolvimento" | "exclusivo";
 
 export const statusLabel: Record<StatusProduto, string> = {
-  "em-producao": "Em produção",
-  "no-ar": "No ar",
-  "em-desenvolvimento": "Em desenvolvimento",
-  exclusivo: "Solução exclusiva",
+  "em-producao": "Em uso por clientes",
+  "no-ar": "Disponível",
+  "em-desenvolvimento": "Em construção",
+  exclusivo: "Exclusivo",
+};
+
+export const badgeTone: Record<StatusProduto, "ok" | "info" | "warn" | "neutral"> = {
+  "em-producao": "ok",
+  "no-ar": "info",
+  "em-desenvolvimento": "warn",
+  exclusivo: "neutral",
 };
 
 export type Produto = {
@@ -17,10 +26,19 @@ export type Produto = {
   nome: string;
   status: StatusProduto;
   publico: string;
+  /** H1 da página do produto. */
+  manchete: string;
+  /** Uma frase para o card. */
   resumo: string;
   descricao: string;
+  /** Aviso curto abaixo dos botões, quando houver. */
+  aviso?: string;
+  destaquesTitulo: string;
   destaques: { titulo: string; texto: string }[];
-  numeros: { valor: string; rotulo: string }[];
+  /** Título da lista de funcionalidades. */
+  funcionaTitulo: string;
+  /** Funcionalidades que já existem e funcionam. */
+  funciona: string[];
   acesso?: { label: string; href: string };
   site?: { label: string; href: string };
   cor: string; // classe Tailwind do marcador do produto
@@ -32,32 +50,38 @@ export const produtos: Produto[] = [
     nome: "Axis",
     status: "em-desenvolvimento",
     publico: "Escritórios de contabilidade",
+    manchete: "Axis. O escritório contábil em um só lugar.",
     resumo: "Gestão do escritório de contabilidade em um só lugar.",
     descricao:
-      "O Axis junta num único sistema o que hoje fica espalhado entre Domínio, Trello, Acessórias, Omie e planilhas. Quadros de tarefas, agenda, RH, cadastros e notas de serviço, com a marca do seu escritório na tela.",
+      "O Axis vai juntar num único sistema o que hoje fica espalhado entre Domínio, Trello, Acessórias, Omie e planilhas. Quadros de tarefas, agenda, RH e cadastros, com a marca do seu escritório na tela.",
+    aviso: "O Axis está em construção. Quer ver antes do lançamento? Fale com a gente.",
+    destaquesTitulo: "O que o Axis vai fazer",
     destaques: [
       {
         titulo: "Quadros em tempo real",
-        texto: "Tarefas em colunas, etiquetas e comentários. Grave um áudio e ele vira cartão pronto.",
+        texto: "Tarefas em colunas, etiquetas e arrastar-e-soltar, com a equipe toda vendo a mesma coisa.",
       },
       {
         titulo: "Agenda que conversa com o Google",
-        texto: "Eventos, repetições e convidados, com link para a sua Google Agenda.",
+        texto: "Eventos, repetições e visões da agenda, com link para a sua Google Agenda.",
       },
       {
         titulo: "RH e cadastros",
-        texto: "Atestados, salários, exames ocupacionais e cadastro de funcionários pelo Cartão CNPJ.",
+        texto: "Atestados, salários, exames ocupacionais e cadastro de empresas preenchido pelo Cartão CNPJ.",
       },
       {
         titulo: "Com a sua marca",
         texto: "Nome, logotipo e cores do escritório. Seus clientes veem o seu sistema.",
       },
     ],
-    numeros: [
-      { valor: "24", rotulo: "módulos planejados" },
-      { valor: "8", rotulo: "módulos já com telas" },
-      { valor: "5", rotulo: "ferramentas que substitui" },
-      { valor: "+1.500", rotulo: "testes automatizados" },
+    funcionaTitulo: "Em construção agora",
+    funciona: [
+      "Entrada com conta Google e permissões por módulo",
+      "Quadros de tarefas em tempo real",
+      "Agenda do escritório com link para a Google Agenda",
+      "Recursos humanos: atestados, salários e exames",
+      "Cadastros de funcionários, clientes e empresas",
+      "Marca própria do escritório na tela",
     ],
     acesso: { label: "Entrar no Axis", href: "https://axis.flowlyx.com.br" },
     cor: "bg-brand-indigo",
@@ -67,12 +91,14 @@ export const produtos: Produto[] = [
     nome: "SóPede",
     status: "em-producao",
     publico: "Restaurantes, lanchonetes e pizzarias",
+    manchete: "SóPede. Delivery próprio, sem comissão.",
     resumo: "Seu delivery próprio, sem comissão por pedido.",
     descricao:
       "Cada loja tem seu canal de venda: link próprio, QR Code na mesa e aplicativo. O pedido cai na cozinha com alarme, sai na impressora e o cliente acompanha pelo celular. Mensalidade fixa, sem comissão.",
+    destaquesTitulo: "O que o SóPede faz",
     destaques: [
       {
-        titulo: "Pedido nunca se perde",
+        titulo: "Pedido não passa batido",
         texto: "Painel de cozinha com alarme até alguém aceitar. Impressão automática na térmica.",
       },
       {
@@ -81,20 +107,27 @@ export const produtos: Produto[] = [
       },
       {
         titulo: "Cardápio por foto",
-        texto: "Tire uma foto do cardápio em papel e o sistema monta os itens com preço.",
+        texto: "Tire uma foto do cardápio em papel e o sistema monta a lista de itens para você revisar.",
       },
       {
-        titulo: "PIX e nota fiscal",
-        texto: "Pagamento PIX dentro do pedido e nota fiscal da venda quando o cliente pede.",
+        titulo: "PIX dentro do pedido",
+        texto: "O cliente paga por PIX no próprio pedido, pelo Mercado Pago.",
       },
     ],
-    numeros: [
-      { valor: "0%", rotulo: "de comissão por pedido" },
-      { valor: "53", rotulo: "telas entre painel, site e app" },
-      { valor: "5", rotulo: "formas de imprimir o cupom" },
-      { valor: "9", rotulo: "etapas do pedido acompanhadas" },
+    funcionaTitulo: "Já funciona hoje",
+    funciona: [
+      "Cardápio digital com link próprio e QR Code na mesa",
+      "Painel de cozinha com alarme e histórico do dia",
+      "Impressão do cupom: navegador, USB, Bluetooth ou agente Windows",
+      "Delivery com taxa por bairro, cidade ou distância no mapa",
+      "Balcão, venda por quilo com balança e salão com comandas",
+      "Salão funciona mesmo com a internet caída",
+      "Entregadores, estoque, ficha técnica e faturamento",
+      "Aplicativo no celular para o cliente pedir",
+      "Pagamento PIX no pedido",
+      "Mensalidade fixa, sem comissão por pedido",
     ],
-    site: { label: "Conhecer o SóPede", href: "https://sopede.com.br" },
+    site: { label: "Site sopede.com.br", href: "https://sopede.com.br" },
     acesso: { label: "Entrar no painel", href: "https://painel.sopede.com.br" },
     cor: "bg-brand-cyan",
   },
@@ -103,34 +136,43 @@ export const produtos: Produto[] = [
     nome: "Contabilidade",
     status: "no-ar",
     publico: "Escritórios contábeis e suas empresas",
+    manchete: "Contabilidade. Notas, guias e folha com fonte oficial.",
     resumo: "Notas, guias, folha e escrituração com fonte oficial.",
     descricao:
-      "Recebe as notas fiscais direto da SEFAZ, emite nota de serviço, gera DAS e DARF pela Receita, calcula folha e 13º e fecha a contabilidade. Tudo que fala com o governo usa o serviço oficial.",
+      "Recebe as notas fiscais direto da SEFAZ, emite nota de serviço, gera DAS e DARF pela Receita, calcula folha e 13º e fecha a contabilidade. Tudo que fala com o governo usa o serviço oficial. Nome comercial: ContabOffice.",
+    destaquesTitulo: "O que o Contabilidade faz",
     destaques: [
       {
         titulo: "Notas chegam sozinhas",
-        texto: "NF-e e NFS-e baixadas a cada hora direto dos ambientes nacionais.",
+        texto: "NF-e buscadas a cada hora na SEFAZ e NFS-e recebidas do ambiente nacional.",
       },
       {
         titulo: "Guias pela Receita",
-        texto: "DAS e DARF gerados pelo Integra Contador, com baixa automática quando pagos.",
+        texto: "DAS e DARF gerados pelo Integra Contador, com PIX copia e cola e aviso quando o cliente abre a guia.",
       },
       {
         titulo: "Folha completa",
-        texto: "INSS, IRRF, FGTS, holerite em PDF, 13º e lucros distribuídos, por vigência.",
+        texto: "INSS, IRRF, FGTS, holerite, 13º e lucros distribuídos, por vigência.",
       },
       {
         titulo: "Obrigações no prazo",
         texto: "24 obrigações no calendário, com prazo ajustado para dia útil.",
       },
     ],
-    numeros: [
-      { valor: "12", rotulo: "módulos" },
-      { valor: "6", rotulo: "integrações oficiais" },
-      { valor: "374", rotulo: "testes automatizados" },
-      { valor: "5.571", rotulo: "municípios para NFS-e" },
+    funcionaTitulo: "Já funciona hoje",
+    funciona: [
+      "Carteira de clientes e calendário de obrigações por empresa",
+      "Cadastro da empresa pelo PDF do Cartão CNPJ",
+      "NF-e recebidas da SEFAZ e NFS-e do ambiente nacional",
+      "Emissão, substituição e cancelamento de NFS-e",
+      "DAS e DARF gerados pela Receita, com PIX copia e cola",
+      "Conferência do Simples Nacional: faixa, Fator R e alíquota",
+      "Folha de pagamento, holerite, 13º e lucros distribuídos",
+      "Extrato bancário (OFX), conciliação, balancete, DRE e balanço",
+      "Documentos do cliente organizados por empresa",
+      "Contrato de serviços contábeis e cobrança de honorários",
     ],
-    acesso: { label: "Entrar no sistema", href: "https://contabilidade-a9d35.web.app" },
+    acesso: { label: "Entrar no ContabOffice", href: "https://contabilidade-a9d35.web.app" },
     cor: "bg-accent",
   },
   {
@@ -138,35 +180,54 @@ export const produtos: Produto[] = [
     nome: "GeEm Next",
     status: "exclusivo",
     publico: "Indústria de componentes de borracha e plástico",
+    manchete: "GeEm Next. O ERP de uma fábrica, reconstruído sem parar a produção.",
     resumo: "O ERP de uma fábrica, reconstruído do zero sem parar a produção.",
     descricao:
-      "Solução exclusiva para uma indústria com cerca de 40 colaboradores. Um sistema antigo em Access, com 35 mil linhas e sem dono, virou uma plataforma moderna em .NET que convive com o legado enquanto o substitui, módulo a módulo.",
+      "Solução exclusiva para uma indústria com cerca de 40 colaboradores. Um sistema antigo em Access, sem dono, virou uma plataforma moderna em .NET que convive com o legado enquanto o substitui, módulo a módulo.",
+    destaquesTitulo: "O que o GeEm Next faz",
     destaques: [
       {
         titulo: "RH e ponto eletrônico",
-        texto: "Registro oficial de funcionários, férias, salários, PLR e relógio de ponto integrado.",
+        texto: "Registro oficial de funcionários, férias, salários e relógio de ponto integrado.",
       },
       {
         titulo: "Chão de fábrica",
-        texto: "Produção hora a hora, manutenção pelo celular e automação elétrica das prensas.",
+        texto: "Supervisório de produção, manutenção pelo celular e automação elétrica das prensas.",
       },
       {
         titulo: "Estoque e qualidade",
-        texto: "Inventário com aprovação, nota de entrada por XML, instruções de trabalho com foto.",
+        texto: "Inventário com aprovação, nota de entrada por XML, instruções de trabalho (IT e POP).",
       },
       {
         titulo: "Sem parar a fábrica",
         texto: "O sistema novo e o antigo rodam juntos. Cada módulo troca de lado quando está pronto.",
       },
     ],
-    numeros: [
-      { valor: "2.774", rotulo: "testes automatizados" },
-      { valor: "6.198", rotulo: "notas fiscais reais conferidas, 100% de acerto" },
-      { valor: "117", rotulo: "telas entregues de 186 mapeadas" },
-      { valor: "14", rotulo: "semanas de projeto" },
+    funcionaTitulo: "Em uso na fábrica",
+    funciona: [
+      "Registro oficial de funcionários, férias e salários",
+      "Ponto eletrônico integrado ao relógio de ponto",
+      "Painel de presença ao vivo",
+      "Estoque, inventário com aprovação e estoque mínimo",
+      "Nota de entrada lançada pelo XML",
+      "Instruções de trabalho e procedimentos (IT e POP)",
+      "Ordens de manutenção pelo aplicativo no celular",
+      "Automação elétrica das prensas pelo próprio sistema",
+      "Supervisório de produção",
     ],
     cor: "bg-ink-700",
   },
 ];
+
+export const paginaProdutos = {
+  eyebrow: "Produtos",
+  titulo: "O que já está rodando",
+  subtitulo:
+    "Quatro sistemas, três setores. Dois você pode acessar hoje, um está em construção e o quarto é exclusivo de um cliente.",
+  conhecer: "Conhecer o",
+  conhecerCurto: "Conhecer",
+  verCase: "Ver o case",
+  maisNaPagina: "E mais na página do produto.",
+} as const;
 
 export const produtoPorSlug = (slug: string) => produtos.find((p) => p.slug === slug);

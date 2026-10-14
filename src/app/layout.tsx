@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Manrope } from "next/font/google";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { site } from "@/content/site";
+import { cabecalho, seo, site } from "@/content/site";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
@@ -11,7 +11,7 @@ const manrope = Manrope({ subsets: ["latin"], variable: "--font-manrope", weight
 export const metadata: Metadata = {
   metadataBase: new URL(site.dominio),
   title: {
-    default: `${site.nome} · Software sob medida, entregue rápido`,
+    default: `${site.nome} · ${seo.tituloPadrao}`,
     template: `%s · ${site.nome}`,
   },
   description: site.descricao,
@@ -19,9 +19,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "pt_BR",
     siteName: site.nome,
-    title: `${site.nome} · Software sob medida, entregue rápido`,
+    title: `${site.nome} · ${seo.tituloPadrao}`,
     description: site.descricao,
-    images: [{ url: "/marca/og.png", width: 1200, height: 630, alt: "Flowlyx — Produtividade em fluxo" }],
+    // TODO: adicionar images: [{ url: "/marca/og.png", width: 1200, height: 630 }] quando o arquivo existir.
   },
   icons: { icon: "/favicon.svg" },
   robots: { index: true, follow: true },
@@ -33,9 +33,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="flex min-h-full flex-col">
         <a
           href="#conteudo"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-sm focus:bg-paper focus:px-4 focus:py-2 focus:text-text"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-sm focus:bg-surface focus:px-4 focus:py-2 focus:text-text"
         >
-          Ir para o conteúdo
+          {cabecalho.pularParaConteudo}
         </a>
         <Header />
         <main id="conteudo" className="flex-1">
