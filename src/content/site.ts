@@ -11,9 +11,8 @@ export const site = {
     "Software sob medida para a sua empresa desde 2008, entregue rápido e com preço justo. Sistemas web, aplicativos, integrações fiscais e automação industrial.",
   desde: "2008",
   email: "flowlyxdev@gmail.com",
-  // TODO(Alexandre): informar CNPJ e cidade. Sem isso o rodapé e a política de privacidade ficam incompletos.
-  cnpj: "",
-  cidade: "",
+  cnpj: "60.748.857/0001-16",
+  cidade: "Conceição dos Ouros, MG",
 } as const;
 
 export const nav = [

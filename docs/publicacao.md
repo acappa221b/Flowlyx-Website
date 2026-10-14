@@ -1,5 +1,7 @@
 # Publicação oficial do flowlyx.com.br — passo a passo
 
+> Situação em 14/10/2026: passos 1 a 4 feitos. Site publicado em https://flowlyx-website.web.app. Banco Firestore criado com o nome `banco-flowlyx` (a função e as regras já apontam para ele). Falta o passo 5 (domínio) e, mais tarde, o passo 6.
+
 Faça na ordem. Cada passo diz onde clicar e o que copiar. Quando terminar o passo 5, avise o Claude: ele publica, testa o formulário e confere o domínio.
 
 ---

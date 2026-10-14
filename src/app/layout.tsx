@@ -21,9 +21,12 @@ export const metadata: Metadata = {
     siteName: site.nome,
     title: `${site.nome} · ${seo.tituloPadrao}`,
     description: site.descricao,
-    // TODO: adicionar images: [{ url: "/marca/og.png", width: 1200, height: 630 }] quando o arquivo existir.
+    images: [{ url: "/marca/og.png", width: 1200, height: 630, alt: `${site.nome} · ${site.slogan}` }],
   },
-  icons: { icon: "/favicon.svg" },
+  icons: {
+    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }, { url: "/favicon-32.png", sizes: "32x32", type: "image/png" }],
+    apple: "/apple-touch-icon.png",
+  },
   robots: { index: true, follow: true },
 };
 

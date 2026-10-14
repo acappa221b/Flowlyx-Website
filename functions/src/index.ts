@@ -15,6 +15,8 @@ import nodemailer from "nodemailer";
 initializeApp();
 
 const DESTINO = "flowlyxdev@gmail.com";
+// Banco criado pelo Alexandre no console com este nome (não é o "(default)").
+const BANCO = "banco-flowlyx";
 const GMAIL_APP_PASSWORD = defineSecret("GMAIL_APP_PASSWORD");
 
 const ORIGENS_PERMITIDAS = new Set([
@@ -126,7 +128,7 @@ export const contato = onRequest(
     }
     const { pedido } = resultado;
 
-    const db = getFirestore();
+    const db = getFirestore(BANCO);
     const doc = await db.collection("pedidos").add({
       ...pedido,
       origem: origem || null,
