@@ -7,7 +7,7 @@ export const solucoes = {
     eyebrow: "Soluções",
     titulo: "Qualquer área. O sistema certo.",
     subtitulo:
-      "Já construímos para restaurante, escritório contábil e indústria. O método é o mesmo: entender o trabalho e entregar o que resolve.",
+      "Já construímos para restaurante, imobiliária, escritório contábil e indústria. O método é o mesmo: entender o trabalho e entregar o que resolve.",
   },
   tiposTitulo: "O que construímos",
   tipos: [
@@ -15,7 +15,7 @@ export const solucoes = {
       titulo: "Sistema web para a empresa",
       texto:
         "Painéis, cadastros, relatórios e fluxos de trabalho acessados pelo navegador, no computador ou no celular.",
-      exemplo: "Como o painel do SóPede e o Contabilidade.",
+      exemplo: "Como o painel do SóPede e o Locabilize.",
     },
     {
       titulo: "Aplicativo para celular",
@@ -163,11 +163,12 @@ export const cases = {
     titulo: "O que já entregamos",
     subtitulo: "Projetos reais, com o que já funciona em produção. Sem nome de cliente quando o contrato pede sigilo.",
   },
-  rotulos: { desafio: "O desafio", solucao: "O que fizemos", funciona: "O que já funciona" },
+  rotulos: { desafio: "O desafio", solucao: "O que fizemos", funciona: "O que já funciona", exclusivo: "Solução exclusiva de um cliente, sem acesso público.", exclusivoBadge: "Exclusivo" },
   itens: [
     {
       slug: "geem-next",
       setor: "Indústria · componentes de borracha e plástico · cerca de 40 colaboradores",
+      links: [],
       titulo: "ERP de fábrica reconstruído sem parar a produção",
       desafio:
         "Um sistema em Access feito ao longo de anos por alguém que não estava mais disponível. Sem RH, sem ponto eletrônico, sem nota fiscal eletrônica, com riscos catalogados e ninguém para corrigir.",
@@ -185,23 +186,46 @@ export const cases = {
     {
       slug: "sopede",
       setor: "Restaurantes · sistema próprio por assinatura · em uso por clientes",
+      links: [
+        { label: "Visitar sopede.com.br", href: "https://sopede.com.br" },
+        { label: "Entrar no painel", href: "https://painel.sopede.com.br" },
+      ],
       titulo: "Delivery próprio para restaurantes de cidades pequenas",
       desafio:
         "Restaurantes de cidades pequenas, sem iFood, não tinham canal próprio de pedidos. Quem entrava em aplicativo pagava comissão em cada venda.",
       solucao:
-        "Um canal de pedidos próprio por loja, com painel de cozinha, impressão automática, PIX no pedido e app para o cliente. Mensalidade fixa, sem comissão. Em produção desde outubro de 2026.",
+        "Um canal de pedidos próprio por loja, com painel de cozinha, impressão automática, Pix no pedido e app para o cliente. Mensalidade fixa, sem comissão. Em produção desde outubro de 2026.",
       funciona: [
         "Cardápio digital com link próprio e QR Code",
         "Painel de cozinha com alarme",
         "Impressão automática do cupom",
         "Delivery, balcão e salão com comandas",
-        "Pagamento PIX no pedido",
+        "Pagamento Pix no pedido",
         "Aplicativo no celular para o cliente",
+      ],
+    },
+    {
+      slug: "locabilize",
+      setor: "Imobiliárias · sistema próprio · em produção",
+      titulo: "Gestão de aluguel completa para imobiliárias pequenas",
+      links: [{ label: "Visitar locabilize.com.br", href: "https://locabilize.com.br/" }],
+      desafio:
+        "A imobiliária de bairro e de cidade do interior emite boleto na mão e refaz contrato no editor de texto. Quem administra dezenas de aluguéis não precisa de um sistema caro e complicado.",
+      solucao:
+        "Um sistema completo: imóveis, contratos a partir de modelos, boleto e Pix emitidos na conta bancária da própria imobiliária, avisos por WhatsApp, repasses ao proprietário, vistorias e uma vitrine pública com o nome da imobiliária. Sem instalar nada, no computador ou no celular.",
+      funciona: [
+        "Imóveis com fotos, mapa e controle de chaves",
+        "Contratos a partir de modelos, com reajuste por IGP-M, IPCA ou INPC",
+        "Boleto e Pix na conta da imobiliária (Sicoob, Sicredi ou Asaas)",
+        "Baixa automática e avisos de cobrança por WhatsApp",
+        "Repasses ao proprietário e vistorias com fotos",
+        "Vitrine própria e anúncios para ZAP, Viva Real e OLX",
       ],
     },
     {
       slug: "contabilidade",
       setor: "Escritório contábil · sistema web · disponível",
+      links: [{ label: "Entrar no ContabOffice", href: "https://contabilidade-a9d35.web.app" }],
       titulo: "Fiscal, folha e escrituração só com fonte oficial",
       desafio:
         "Escritórios contábeis consultam e-CAC, SEFAZ e portal da prefeitura e digitam o mesmo dado várias vezes.",

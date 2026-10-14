@@ -217,7 +217,7 @@ export const seo = {
     cases: {
       title: "Cases",
       description:
-        "Projetos reais da Flowlyx: ERP industrial reconstruído, delivery próprio para restaurantes e sistema contábil com fonte oficial.",
+        "Projetos reais da Flowlyx: ERP industrial reconstruído, delivery próprio para restaurantes, gestão de aluguel para imobiliárias e sistema contábil com fonte oficial.",
     },
     sobre: {
       title: "Sobre nós",
@@ -233,6 +233,10 @@ export const seo = {
       description: "Como a Flowlyx trata os dados enviados pelo site flowlyx.com.br.",
     },
   },
+} as const;
+
+export const acessibilidade = {
+  novaAba: "(abre em nova aba)",
 } as const;
 
 export const cabecalho = {

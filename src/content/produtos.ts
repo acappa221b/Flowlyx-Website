@@ -110,8 +110,8 @@ export const produtos: Produto[] = [
         texto: "Tire uma foto do cardápio em papel e o sistema monta a lista de itens para você revisar.",
       },
       {
-        titulo: "PIX dentro do pedido",
-        texto: "O cliente paga por PIX no próprio pedido, pelo Mercado Pago.",
+        titulo: "Pix dentro do pedido",
+        texto: "O cliente paga por Pix no próprio pedido, pelo Mercado Pago.",
       },
     ],
     funcionaTitulo: "Já funciona hoje",
@@ -124,7 +124,7 @@ export const produtos: Produto[] = [
       "Salão funciona mesmo com a internet caída",
       "Entregadores, estoque, ficha técnica e faturamento",
       "Aplicativo no celular para o cliente pedir",
-      "Pagamento PIX no pedido",
+      "Pagamento Pix no pedido",
       "Mensalidade fixa, sem comissão por pedido",
     ],
     site: { label: "Site sopede.com.br", href: "https://sopede.com.br" },
@@ -148,7 +148,7 @@ export const produtos: Produto[] = [
       },
       {
         titulo: "Guias pela Receita",
-        texto: "DAS e DARF gerados pelo Integra Contador, com PIX copia e cola e aviso quando o cliente abre a guia.",
+        texto: "DAS e DARF gerados pelo Integra Contador, com Pix copia e cola e aviso quando o cliente abre a guia.",
       },
       {
         titulo: "Folha completa",
@@ -165,7 +165,7 @@ export const produtos: Produto[] = [
       "Cadastro da empresa pelo PDF do Cartão CNPJ",
       "NF-e recebidas da SEFAZ e NFS-e do ambiente nacional",
       "Emissão, substituição e cancelamento de NFS-e",
-      "DAS e DARF gerados pela Receita, com PIX copia e cola",
+      "DAS e DARF gerados pela Receita, com Pix copia e cola",
       "Conferência do Simples Nacional: faixa, Fator R e alíquota",
       "Folha de pagamento, holerite, 13º e lucros distribuídos",
       "Extrato bancário (OFX), conciliação, balancete, DRE e balanço",

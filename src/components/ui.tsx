@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { cta } from "@/content/site";
+import { acessibilidade, cta } from "@/content/site";
 
 /* Container padrão: 1152px, gutter 20/24px */
 export function Container({ children, className = "" }: { children: ReactNode; className?: string }) {
@@ -91,6 +91,7 @@ export function Button({
     return (
       <a href={href} className={cls} target={href.startsWith("mailto:") ? undefined : "_blank"} rel="noopener noreferrer">
         {children}
+        {!href.startsWith("mailto:") && <span className="sr-only">{acessibilidade.novaAba}</span>}
       </a>
     );
   }
