@@ -5,7 +5,8 @@ Site da Flowlyx, empresa de desenvolvimento de software sob medida. Mostra o que
 ## Fatos fixos
 - Domínio: `flowlyx.com.br`. Login do Axis: `https://axis.flowlyx.com.br`. SóPede: `https://sopede.com.br`.
 - Firebase: projeto `flowlyx-website` (nº 345573944019), plano Blaze. Hosting serve a pasta `out/` (exportação estática do Next). Function `contato` em `southamerica-east1` recebe o formulário, grava no Firestore `banco-flowlyx` (banco nomeado, não o default) e envia e-mail. Site publicado em https://flowlyx-website.web.app.
-- E-mail de contato: `flowlyxdev@gmail.com`. CNPJ 60.748.857/0001-16. Conceição dos Ouros, MG.
+- E-mail de contato: `flowlyxdev@gmail.com`. WhatsApp +55 (12) 98174-6412. CNPJ 60.748.857/0001-16. Conceição dos Ouros, MG.
+- Medição própria (sem cookies): função `evento` grava em `eventos`; `/painel/` (login Google, só alexandrecappa12@gmail.com, pcarvalhosergio@gmail.com e flowlyxdev@gmail.com, lista na função `painelResumo`) mostra visitas, funil e pedidos. Ver `docs/analytics.md`. SEO: `docs/seo.md`.
 - Sócios: Alexandre (acappa221b) e Paulo Sérgio Carvalho (paulosc). A Flowlyx conta a história **desde 2008**. O rosto do site é o Paulo (ficha em `docs/pesquisa/equipe.md`). O Alexandre não quer aparecer com nome: a experiência dele entra como "equipe" (GeEm Next, MRP, RH, relés ethernet, soluções industriais).
 - Idioma do site e dos commits: português do Brasil.
 
@@ -24,7 +25,7 @@ npm run deploy     # build + firebase deploy (hosting + functions)
 - `src/app/` páginas · `src/components/` componentes · `src/content/` todo texto e dados (produtos, site, serviços)
 - `docs/pesquisa/` fichas dos produtos e design brief (fonte de verdade para números) · `docs/design/` sistema de design · `docs/gauntlet-loop.md` processo · `docs/gauntlet/` registro das rodadas
 - `.claude/agents/` builder-ui, builder-copy, gauntlet-critic
-- `functions/` Cloud Function do formulário de contato
+- `functions/` Cloud Functions: `contato` (formulário), `evento` (medição), `painelResumo` (painel)
 
 ## Regras
 1. **Gauntlet Loop obrigatório** para qualquer mudança visível: builder → gauntlet-critic → corrigir → repetir até APROVADO. Ver `docs/gauntlet-loop.md`.

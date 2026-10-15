@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Logo } from "./Logo";
 import { ExternalIcon } from "./ui";
-import { acessos, cta, nav, rodape, site } from "@/content/site";
+import { acessibilidade, acessos, cta, nav, rodape, site } from "@/content/site";
 
 const link = "inline-block py-3 hover:text-text-inverse md:py-2";
 
@@ -14,7 +14,7 @@ export function Footer() {
           <div>
             <Logo tone="light" />
             <p className="mt-4 max-w-xs text-sm leading-relaxed">{site.descricao}</p>
-            <p className="mt-4 text-xs font-semibold uppercase tracking-[0.14em] text-text-inverse-2/70">{site.slogan}</p>
+            <p className="mt-4 whitespace-nowrap text-xs font-semibold uppercase tracking-[0.14em] text-text-inverse-2/70">{site.slogan}</p>
           </div>
 
           <div>
@@ -44,6 +44,7 @@ export function Footer() {
                     {a.nome}
                     {a.status && <span className="whitespace-nowrap text-xs text-text-inverse-2/70">({a.status.toLowerCase()})</span>}
                     <ExternalIcon className="opacity-60" />
+                    <span className="sr-only">{acessibilidade.novaAba}</span>
                   </a>
                 </li>
               ))}
@@ -56,6 +57,13 @@ export function Footer() {
               <li>
                 <a href={`mailto:${site.email}`} className={link}>
                   {site.email}
+                </a>
+              </li>
+              <li>
+                <a href={site.whatsappLink} target="_blank" rel="noopener noreferrer" className={`${link} inline-flex items-center gap-1.5`}>
+                  {rodape.whatsapp}
+                  <ExternalIcon className="opacity-60" />
+                  <span className="sr-only">{acessibilidade.novaAba}</span>
                 </a>
               </li>
               <li>

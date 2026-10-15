@@ -1,11 +1,14 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { CheckList } from "@/components/CheckList";
 import { ProductCard } from "@/components/ProductCard";
 import { SecurityIcon } from "@/components/SecurityIcon";
-import { ArrowIcon, Button, Card, Container, Eyebrow, Heading, Lead, Section, Stat } from "@/components/ui";
+import { ArrowIcon, Button, Card, Container, Eyebrow, ExternalIcon, Heading, Lead, Section, Stat } from "@/components/ui";
 import { produtos } from "@/content/produtos";
 import { cases } from "@/content/servicos";
 import { cta, home, site } from "@/content/site";
+
+export const metadata: Metadata = { alternates: { canonical: "/" } };
 
 export default function Home() {
   const caseDestaque = cases.itens[0];
@@ -154,12 +157,13 @@ export default function Home() {
           <Heading>{home.chamadaFinal.titulo}</Heading>
           <Lead className="mt-4 text-text-2">{home.chamadaFinal.texto}</Lead>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Button href={cta.primario.href} size="lg">
+            <Button href={cta.primario.href} size="lg" className="w-full sm:w-auto">
               {cta.primario.label}
               <ArrowIcon />
             </Button>
-            <Button href={`mailto:${site.email}`} size="lg" variant="secondary">
-              {site.email}
+            <Button href={site.whatsappLink} size="lg" variant="secondary" className="w-full sm:w-auto">
+              {cta.whatsapp.label}
+              <ExternalIcon />
             </Button>
           </div>
         </div>

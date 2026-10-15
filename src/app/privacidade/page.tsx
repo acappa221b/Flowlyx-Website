@@ -26,7 +26,7 @@ export default function PrivacidadePage() {
                       <a className="inline-block py-2 text-accent underline-offset-4 hover:underline" href={`mailto:${site.email}`}>
                         {site.email}
                       </a>
-                      {site.cnpj ? ` CNPJ ${site.cnpj}.` : "."}
+                      {site.cnpj ? ` (CNPJ ${site.cnpj}).` : "."}
                     </>
                   )}
                 </p>

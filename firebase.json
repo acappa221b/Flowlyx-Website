@@ -15,6 +15,13 @@
           "functionId": "contato",
           "region": "southamerica-east1"
         }
+      },
+      {
+        "source": "/api/evento",
+        "function": {
+          "functionId": "evento",
+          "region": "southamerica-east1"
+        }
       }
     ],
     "headers": [

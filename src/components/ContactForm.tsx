@@ -2,6 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import { formulario as f, site, tiposDeSoftware } from "@/content/site";
+import { registrar } from "@/lib/medicao";
 
 type Estado = "idle" | "enviando" | "ok" | "erro";
 
@@ -14,6 +15,13 @@ const rotulo = "block text-sm font-semibold text-text";
 export function ContactForm() {
   const [estado, setEstado] = useState<Estado>("idle");
   const [erro, setErro] = useState<string>("");
+  const [comecou, setComecou] = useState(false);
+
+  function aoComecar() {
+    if (comecou) return;
+    setComecou(true);
+    registrar("formulario_inicio");
+  }
 
   async function enviar(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -32,6 +40,7 @@ export function ContactForm() {
         throw new Error(corpo?.erro ?? f.erroPadrao);
       }
       setEstado("ok");
+      registrar("formulario_envio");
       form.reset();
     } catch (err) {
       setEstado("erro");
@@ -55,7 +64,7 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={enviar} className="space-y-5">
+    <form onSubmit={enviar} onFocusCapture={aoComecar} className="space-y-5">
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor="nome" className={rotulo}>

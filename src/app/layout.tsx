@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter, Manrope } from "next/font/google";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { JsonLd } from "@/components/JsonLd";
+import { Medicao } from "@/components/Medicao";
 import { cabecalho, seo, site } from "@/content/site";
 import "./globals.css";
 
@@ -15,6 +17,7 @@ export const metadata: Metadata = {
     template: `%s · ${site.nome}`,
   },
   description: site.descricao,
+  keywords: [...seo.palavrasChave],
   openGraph: {
     type: "website",
     locale: "pt_BR",
@@ -40,6 +43,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         >
           {cabecalho.pularParaConteudo}
         </a>
+        <JsonLd />
+        <Medicao />
         <Header />
         <main id="conteudo" className="flex-1">
           {children}

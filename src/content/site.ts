@@ -11,6 +11,10 @@ export const site = {
     "Software sob medida para a sua empresa desde 2008, entregue rápido e com preço justo. Sistemas web, aplicativos, integrações fiscais e automação industrial.",
   desde: "2008",
   email: "flowlyxdev@gmail.com",
+  whatsapp: "+55 (12) 98174-6412",
+  whatsappE164: "+5512981746412",
+  whatsappMensagem: "Olá, vim pelo site da Flowlyx e quero conversar sobre um sistema.",
+  whatsappLink: `https://wa.me/5512981746412?text=${encodeURIComponent("Olá, vim pelo site da Flowlyx e quero conversar sobre um sistema.")}`,
   cnpj: "60.748.857/0001-16",
   cidade: "Conceição dos Ouros, MG",
 } as const;
@@ -47,6 +51,7 @@ export const cta = {
   primario: { label: "Pedir orçamento", href: "/contato" },
   secundario: { label: "Ver produtos", href: "/produtos" },
   entrar: { label: "Entrar", labelCelular: "Entrar nos sistemas" },
+  whatsapp: { label: "Chamar no WhatsApp" },
 } as const;
 
 export const home = {
@@ -190,6 +195,8 @@ export const contato = {
     { titulo: "Conversamos", texto: "Respondemos por e-mail ou WhatsApp com perguntas e um caminho." },
   ],
   prefereEmail: "Prefere e-mail?",
+  prefereWhatsapp: "Ou chame no WhatsApp",
+  whatsappBotao: "Chamar no WhatsApp",
 } as const;
 
 export const tiposDeSoftware = [
@@ -203,33 +210,55 @@ export const tiposDeSoftware = [
 ] as const;
 
 export const seo = {
-  tituloPadrao: "Software sob medida, entregue rápido",
+  tituloPadrao: "Desenvolvimento de software sob medida",
+  // Palavras-chave que o site quer disputar no Google. Fonte: docs/seo.md.
+  palavrasChave: [
+    "desenvolvimento de software sob medida",
+    "desenvolvimento de software",
+    "software house",
+    "fábrica de software",
+    "desenvolvimento de sistemas para empresas",
+    "sistema personalizado para empresa",
+    "desenvolvimento de aplicativos",
+    "automação industrial",
+    "sistema para restaurante",
+    "sistema para imobiliária",
+    "sistema para escritório de contabilidade",
+    "modernização de sistema legado",
+    "software sob medida Minas Gerais",
+  ],
   paginas: {
     solucoes: {
-      title: "Soluções",
+      title: "Sistemas, aplicativos e automação sob medida",
+      alternates: { canonical: "/solucoes/" },
       description:
         "Sistemas web, aplicativos, software desktop e industrial, integrações fiscais, automação com IA e modernização de sistemas antigos.",
     },
     produtos: {
-      title: "Produtos",
+      title: "Sistemas para restaurantes, contabilidade e indústria",
+      alternates: { canonical: "/produtos/" },
       description: "Axis, SóPede, Contabilidade e GeEm Next: os sistemas que a Flowlyx construiu e mantém.",
     },
     cases: {
-      title: "Cases",
+      title: "Cases de desenvolvimento de software",
+      alternates: { canonical: "/cases/" },
       description:
         "Projetos reais da Flowlyx: ERP industrial reconstruído, delivery próprio para restaurantes, gestão de aluguel para imobiliárias e sistema contábil com fonte oficial.",
     },
     sobre: {
-      title: "Sobre nós",
+      title: "Sobre nós: software sob medida desde 2008",
+      alternates: { canonical: "/sobre/" },
       description:
         "Desde 2008 construindo software sob medida. Conheça Paulo Sérgio Carvalho, desenvolvedor-chave da Flowlyx, e a experiência industrial da equipe.",
     },
     contato: {
-      title: "Pedir orçamento",
+      title: "Pedir orçamento de software sob medida",
+      alternates: { canonical: "/contato/" },
       description: "Descreva o software que você procura. Estudamos o seu caso antes de responder, sem compromisso.",
     },
     privacidade: {
       title: "Política de privacidade",
+      alternates: { canonical: "/privacidade/" },
       description: "Como a Flowlyx trata os dados enviados pelo site flowlyx.com.br.",
     },
   },
@@ -252,6 +281,7 @@ export const rodape = {
   navegacao: "Navegação",
   contato: "Contato",
   politica: "Política de privacidade",
+  whatsapp: "WhatsApp",
   direitos: "Todos os direitos reservados.",
   feitoNoBrasil: "Feito no Brasil.",
   desde: "Desde",
@@ -282,7 +312,7 @@ export const formulario = {
 export const privacidade = {
   eyebrow: "Privacidade",
   titulo: "Política de privacidade",
-  atualizadaEm: "Última atualização: 14 de outubro de 2026.",
+  atualizadaEm: "Última atualização: 15 de outubro de 2026.",
   secoes: [
     {
       titulo: "Quem somos",
@@ -292,7 +322,7 @@ export const privacidade = {
     {
       titulo: "Quais dados coletamos",
       texto:
-        "Só o que você digita no formulário de orçamento: nome, e-mail, empresa e WhatsApp (se informar), o tipo de software e a descrição do que precisa. O site não usa cookies de rastreamento nem ferramentas de publicidade.",
+        "Só o que você digita no formulário de orçamento: nome, e-mail, empresa e WhatsApp (se informar), o tipo de software e a descrição do que precisa. Junto com o pedido, guardamos o endereço IP e o navegador usados no envio, só para barrar abuso. Além disso, o site conta visitas e cliques de forma anônima: um código aleatório que vive só enquanto a aba está aberta, a página vista, a largura da tela, o site de onde você veio (só o endereço principal, como google.com) e, se houver, o código de campanha do link que você clicou. Sem cookies, sem rastreio entre sites, sem ferramentas de publicidade.",
     },
     {
       titulo: "Para que usamos",
@@ -313,6 +343,58 @@ export const privacidade = {
       texto: "O Axis, o SóPede e o Contabilidade têm políticas próprias, disponíveis dentro de cada sistema.",
     },
   ],
+} as const;
+
+export const painel = {
+  eyebrow: "Uso interno",
+  tituloAba: "Painel",
+  titulo: "Painel da Flowlyx",
+  subtitulo: "Visitas, cliques e o caminho até o pedido de orçamento.",
+  entrar: "Entrar com Google",
+  sair: "Sair",
+  semAcesso: "Esta conta não tem acesso ao painel.",
+  carregando: "Carregando…",
+  erro: "Não foi possível carregar os dados.",
+  erroEntrar: "Não foi possível entrar. Tente de novo.",
+  periodoRotulo: "Período",
+  atualizado: "Atualizado às",
+  pedidoSemEmail: "E-mail não enviado",
+  periodos: [
+    { dias: 7, label: "7 dias" },
+    { dias: 30, label: "30 dias" },
+    { dias: 90, label: "90 dias" },
+  ],
+  cartoes: {
+    visitas: "Visitas",
+    paginas: "Páginas vistas",
+    pedidos: "Pedidos de orçamento",
+    conversao: "Conversão",
+    conversaoRotulo: "visitas que viraram pedido",
+  },
+  secoes: {
+    porDia: "Páginas vistas por dia",
+    funil: "Funil até o pedido",
+    paginas: "Páginas mais vistas",
+    cliques: "Cliques importantes",
+    origens: "De onde vieram",
+    dispositivos: "Dispositivo",
+    pedidos: "Últimos pedidos",
+  },
+  funil: [
+    { chave: "visitas", label: "Visitaram o site" },
+    { chave: "contato", label: "Abriram a página de orçamento" },
+    { chave: "formularioInicio", label: "Começaram a preencher" },
+    { chave: "formularioEnvio", label: "Enviaram o pedido" },
+  ],
+  cliques: {
+    cta_orcamento: "Pedir orçamento",
+    whatsapp: "WhatsApp",
+    email: "E-mail",
+  },
+  origens: { direto: "Direto ou desconhecido" },
+  dispositivos: { celular: "Celular", computador: "Computador" },
+  vazio: "Nada registrado neste período ainda.",
+  aviso: "Medição própria, sem cookies. Visitas de quem usa \"Não rastrear\" não entram.",
 } as const;
 
 export const naoEncontrada = {

@@ -99,3 +99,26 @@ O site da Flowlyx já aponta para esse endereço. Não precisa mudar nada nele.
 2. Roda `npm run deploy` (site + função do formulário + regras do banco).
 3. Manda um pedido de teste pelo formulário e confere se o e-mail chegou em flowlyxdev@gmail.com.
 4. Confere o domínio, o HTTPS e o redirecionamento do `www`.
+
+---
+
+## Passo 7 — Ativar o login do painel (5 min)
+O `/painel/` usa login com Google. O Firebase só deixa entrar depois que você ativa o provedor e libera o domínio.
+
+1. Abra https://console.firebase.google.com/project/flowlyx-website/authentication/providers
+2. Se aparecer **Vamos começar**, clique. Depois clique em **Google** → **Ativar**.
+3. Nome público do projeto: `Flowlyx`. E-mail de suporte: `flowlyxdev@gmail.com`. **Salvar**.
+4. Aba **Settings** (Configurações) → **Domínios autorizados** → **Adicionar domínio** → `flowlyx.com.br`. Adicione também `www.flowlyx.com.br`.
+5. Abra https://flowlyx.com.br/painel/ e clique em **Entrar com Google** com uma das três contas: alexandrecappa12@gmail.com, pcarvalhosergio@gmail.com ou flowlyxdev@gmail.com. Qualquer outra conta vê "Esta conta não tem acesso ao painel".
+
+Quem pode entrar está na função `painelResumo` em `functions/src/index.ts`. Para mudar a lista, edite lá e publique de novo.
+
+---
+
+## Passo 8 — Google Search Console e Perfil da Empresa (15 min)
+Isso é o que faz o site aparecer no Google. Passo a passo completo em `docs/seo.md`. Resumo:
+
+1. https://search.google.com/search-console → **Adicionar propriedade** → **Domínio** → `flowlyx.com.br` → crie o registro **TXT** que ele mostrar no registro.br (DNS → Editar zona) → **Verificar**.
+2. No Search Console: **Sitemaps** → `https://flowlyx.com.br/sitemap.xml` → **Enviar**.
+3. https://business.google.com → criar perfil **Flowlyx**, categoria "Empresa de software", Conceição dos Ouros, MG, site flowlyx.com.br, telefone +55 12 98174-6412.
+4. Em 2 a 4 semanas, abra **Desempenho** no Search Console. Ele mostra as buscas reais. Mande um print para o Claude: a partir daí ajustamos os textos.

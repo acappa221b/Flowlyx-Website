@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ContactForm } from "@/components/ContactForm";
-import { Container, Eyebrow, Heading, Lead } from "@/components/ui";
+import { Button, Container, Eyebrow, ExternalIcon, Heading, Lead } from "@/components/ui";
 import { contato, seo, site } from "@/content/site";
 
 export const metadata: Metadata = seo.paginas.contato;
@@ -28,7 +28,16 @@ export default function ContatoPage() {
                 </li>
               ))}
             </ol>
-            <p className="mt-10 text-sm text-text-2">
+            <div className="mt-10">
+              <p className="text-sm text-text-2">
+                {contato.prefereWhatsapp} <span className="whitespace-nowrap font-semibold text-text">{site.whatsapp}</span>
+              </p>
+              <Button href={site.whatsappLink} variant="secondary" className="mt-2 w-full sm:w-auto">
+                {contato.whatsappBotao}
+                <ExternalIcon />
+              </Button>
+            </div>
+            <p className="mt-6 text-sm text-text-2">
               {contato.prefereEmail}{" "}
               <a href={`mailto:${site.email}`} className="inline-block py-2 font-semibold text-accent underline-offset-4 hover:underline">
                 {site.email}
