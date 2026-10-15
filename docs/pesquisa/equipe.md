@@ -4,7 +4,7 @@
 - A Flowlyx conta a história **desde 2008**, "trazendo soluções customizadas para os clientes".
 - O rosto do site é o **Paulo Sérgio Carvalho**, desenvolvedor-chave, por ter mais experiência.
 - O Alexandre **não quer aparecer com nome**. A experiência dele entra como "equipe": GeEm Next, MRP completo, sistema de RH, inúmeras integrações com módulos de relé ethernet, soluções industriais em geral.
-- 15/10/2026: WhatsApp comercial da Flowlyx: **+55 (12) 98174-6412**. Aparece na chamada final da home, em /contato e no rodapé.
+- 15/10/2026: WhatsApp comercial da Flowlyx: **+55 (35) 99169-1904** (trocado pelo Alexandre no mesmo dia; antes era +55 (12) 98174-6412). Aparece na chamada final da home, em /contato e no rodapé.
 
 ## Paulo Sérgio Carvalho
 - Título no site dele: "Java backend engineer". 18 anos construindo e consertando backends em produção, desde 2008.

@@ -11,10 +11,10 @@ export const site = {
     "Software sob medida para a sua empresa desde 2008, entregue rápido e com preço justo. Sistemas web, aplicativos, integrações fiscais e automação industrial.",
   desde: "2008",
   email: "flowlyxdev@gmail.com",
-  whatsapp: "+55 (12) 98174-6412",
-  whatsappE164: "+5512981746412",
+  whatsapp: "+55 (35) 99169-1904",
+  whatsappE164: "+5535991691904",
   whatsappMensagem: "Olá, vim pelo site da Flowlyx e quero conversar sobre um sistema.",
-  whatsappLink: `https://wa.me/5512981746412?text=${encodeURIComponent("Olá, vim pelo site da Flowlyx e quero conversar sobre um sistema.")}`,
+  whatsappLink: `https://wa.me/5535991691904?text=${encodeURIComponent("Olá, vim pelo site da Flowlyx e quero conversar sobre um sistema.")}`,
   cnpj: "60.748.857/0001-16",
   cidade: "Conceição dos Ouros, MG",
 } as const;

@@ -25,3 +25,6 @@ Melhorias aplicadas: botões da chamada final da home com largura igual no celul
 
 ## Rodada 3 — 15/10/2026
 **Veredito: APROVADO.** Todas as notas em 9, zero bloqueadores. Ajuste final: pontuação do CNPJ na política de privacidade.
+
+## Troca do número — 15/10/2026
+O Alexandre trocou o WhatsApp para +55 (35) 99169-1904. Mudança só de dado (mesmo tamanho de texto, mesmo layout), sem rodada do crítico: verificada por lint, build e conferência do HTML publicado.

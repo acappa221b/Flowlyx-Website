@@ -17,7 +17,7 @@ import nodemailer from "nodemailer";
 initializeApp();
 
 const DESTINO = "flowlyxdev@gmail.com";
-const WHATSAPP = "+55 (12) 98174-6412";
+const WHATSAPP = "+55 (35) 99169-1904";
 // Banco criado pelo Alexandre no console com este nome (não é o "(default)").
 const BANCO = "banco-flowlyx";
 const REGIAO = "southamerica-east1";

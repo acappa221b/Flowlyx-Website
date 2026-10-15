@@ -120,5 +120,5 @@ Isso é o que faz o site aparecer no Google. Passo a passo completo em `docs/seo
 
 1. https://search.google.com/search-console → **Adicionar propriedade** → **Domínio** → `flowlyx.com.br` → crie o registro **TXT** que ele mostrar no registro.br (DNS → Editar zona) → **Verificar**.
 2. No Search Console: **Sitemaps** → `https://flowlyx.com.br/sitemap.xml` → **Enviar**.
-3. https://business.google.com → criar perfil **Flowlyx**, categoria "Empresa de software", Conceição dos Ouros, MG, site flowlyx.com.br, telefone +55 12 98174-6412.
+3. https://business.google.com → criar perfil **Flowlyx**, categoria "Empresa de software", Conceição dos Ouros, MG, site flowlyx.com.br, telefone +55 35 99169-1904.
 4. Em 2 a 4 semanas, abra **Desempenho** no Search Console. Ele mostra as buscas reais. Mande um print para o Claude: a partir daí ajustamos os textos.
