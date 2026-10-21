@@ -31,6 +31,11 @@ const ORIGENS_PERMITIDAS = new Set([
   "https://www.flowlyx.com.br",
   "https://flowlyx-website.web.app",
   "https://flowlyx-website.firebaseapp.com",
+  // Página de apresentação do Axis (SPEC-0028 do Axis) usa a mesma função de contato.
+  "https://axis.flowlyx.com.br",
+  "https://flowlyx-axis.web.app",
+  "https://flowlyx-axis-dev.web.app",
+  "http://localhost:5173",
   "http://localhost:3000",
 ]);
 
@@ -42,6 +47,8 @@ const TIPOS = new Set([
   "Automação e inteligência artificial",
   "Modernizar um sistema antigo",
   "Outro",
+  // Interesse vindo da página do Axis.
+  "Axis para escritório contábil",
 ]);
 
 type Pedido = {
