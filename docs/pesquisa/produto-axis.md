@@ -1,6 +1,29 @@
 # Flowlyx Axis — ficha de produto (fonte: repo acappa221b/Flowlyx-Axis, lido em 14/10/2026)
 
-> Uso interno. Nada está em produção. Não afirmar "usado por X escritórios".
+> Uso interno. Não afirmar "usado por X escritórios". O site mostra o Axis como "Em construção" (decisão do Alexandre, 27/10/2026), com a lista abaixo do que já funciona em produção.
+
+## Já funciona em produção (axis.flowlyx.com.br) — lido em 27/10/2026 (Axis P0161)
+Lista confirmada pelo Alexandre. Regra do Axis (ADR-0026): só entra o que está publicado em produção e funcionando, sem pendência que impeça o uso.
+
+- Entrada com conta Google ou e-mail e senha, permissões por módulo
+- Marca própria do escritório (nome, logotipo, cores)
+- Início com painéis configuráveis por pessoa
+- Quadros de tarefas em tempo real
+- Agenda com link iCal para a Google Agenda
+- Cadastros: funcionários, clientes, empresas, prestadores e médicos; fichas de pessoa jurídica (clientes, empresas e prestadores) preenchidas pelo Cartão CNPJ
+- RH do escritório: atestados, advertências, salários, exames ocupacionais, férias, resumo da folha
+- Organograma, IT e POP
+- Ponto: jornadas, apontamento, espelho e banco de horas (a ligação direta com o relógio ainda não está em uso)
+- RH das empresas clientes
+- Chat interno
+- Atendimento WhatsApp multiatendente (somente reativo: responde quem chama, sem disparos)
+- Notas de serviço NFS-e emitidas pelas próprias empresas atendidas (via ContabOffice)
+- Orçamentos e propostas de honorários com catálogo de serviços (o link para o cliente aprovar e o PDF ainda não existem)
+- Financeiro: contas a pagar e a receber, honorários e contas fixas, fluxo de caixa e DRE
+
+**Não anunciar ainda**: cobrança pelo Asaas do escritório; integração com o Omie e tarefas automáticas do Financeiro; áudio que vira cartão; ligação direta com o relógio de ponto.
+
+> O resto desta ficha é a leitura de 14/10/2026, mantida como histórico.
 
 ## O que é
 Plataforma web SaaS multi-tenant para **escritórios de contabilidade**. Reúne em um só sistema o que hoje fica espalhado entre Domínio, Trello, Acessórias, Omie e planilhas. White-label: cada escritório configura nome, logo e cores. Frase oficial: **"Gestão do escritório de contabilidade em um só lugar."**

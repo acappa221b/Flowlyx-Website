@@ -1,7 +1,8 @@
 /**
  * Produtos da Flowlyx. Cada funcionalidade listada já existe e funciona (fonte: docs/pesquisa/produto-*.md).
  * Regra do Alexandre (14/10/2026): só funcionalidades em produção; nada de métricas de desenvolvimento
- * (testes, commits, telas, semanas). O Axis é a exceção: está em construção e é marcado assim.
+ * (testes, commits, telas, semanas). O Axis aparece como "Em construção" (decisão do Alexandre, 27/10/2026),
+ * mas a lista `funciona` dele mostra só o que já está em produção (fonte: docs/pesquisa/produto-axis.md).
  * GeEm Next é exclusivo de um cliente: nunca citar nome, CNPJ ou pessoas.
  */
 
@@ -53,9 +54,9 @@ export const produtos: Produto[] = [
     manchete: "Axis. O escritório contábil em um só lugar.",
     resumo: "Gestão do escritório de contabilidade em um só lugar.",
     descricao:
-      "O Axis vai juntar num único sistema o que hoje fica espalhado entre Domínio, Trello, Acessórias, Omie e planilhas. Quadros de tarefas, agenda, RH e cadastros, com a marca do seu escritório na tela.",
+      "O Axis junta num único sistema o que hoje fica espalhado em planilhas e em vários programas. Quadros de tarefas, agenda, RH, cadastros e financeiro, com a marca do seu escritório na tela.",
     aviso: "O Axis está em construção. Quer ver antes do lançamento? Fale com a gente.",
-    destaquesTitulo: "O que o Axis vai fazer",
+    destaquesTitulo: "O que o Axis já faz",
     destaques: [
       {
         titulo: "Quadros em tempo real",
@@ -74,14 +75,23 @@ export const produtos: Produto[] = [
         texto: "Nome, logotipo e cores do escritório. Seus clientes veem o seu sistema.",
       },
     ],
-    funcionaTitulo: "Em construção agora",
+    funcionaTitulo: "Já funciona hoje",
     funciona: [
-      "Entrada com conta Google e permissões por módulo",
       "Quadros de tarefas em tempo real",
+      "Financeiro: contas a pagar e a receber, honorários, fluxo de caixa e DRE",
+      "Notas de serviço (NFS-e) emitidas pelas próprias empresas atendidas",
+      "Atendimento pelo WhatsApp com vários atendentes, respondendo quem chama",
       "Agenda do escritório com link para a Google Agenda",
-      "Recursos humanos: atestados, salários e exames",
-      "Cadastros de funcionários, clientes e empresas",
+      "RH do escritório: atestados, advertências, salários, exames, férias e resumo da folha",
+      "Cadastros de funcionários, clientes, empresas, prestadores e médicos; empresas preenchidas pelo Cartão CNPJ",
+      "Ponto: jornadas, apontamento, espelho e banco de horas",
+      "RH das empresas que o escritório atende",
+      "Orçamentos e propostas de honorários, com catálogo de serviços",
+      "Organograma, instruções de trabalho e procedimentos (IT e POP)",
+      "Chat interno da equipe",
+      "Início com painéis que cada pessoa monta",
       "Marca própria do escritório na tela",
+      "Entrada com conta Google ou e-mail e senha, com permissões por módulo",
     ],
     acesso: { label: "Entrar no Axis", href: "https://axis.flowlyx.com.br" },
     cor: "bg-brand-indigo",
