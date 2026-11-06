@@ -30,7 +30,7 @@ npm run deploy     # build + firebase deploy (hosting + functions)
 ## Regras
 1. **Gauntlet Loop obrigatório** para qualquer mudança visível: builder → gauntlet-critic → corrigir → repetir até APROVADO. Ver `docs/gauntlet-loop.md`.
 2. **Nenhum número ou afirmação sem fonte** em `docs/pesquisa/`. Não inventar clientes, métricas ou prazos.
-2b. **Produtos mostram só o que já funciona em produção.** Nada de métricas de desenvolvimento no site (testes, commits, telas, linhas de código). O Axis é a exceção: aparece como "Em construção", com a lista do que está sendo construído.
+2b. **Produtos mostram só o que já funciona em produção.** Nada de métricas de desenvolvimento no site (testes, commits, telas, linhas de código). O Axis aparece como "Em construção" (decisão do Alexandre, 27/10/2026), mas a lista dele mostra só o que já funciona em produção em `axis.flowlyx.com.br` (ADR-0026 do repositório do Axis; fonte: `docs/pesquisa/produto-axis.md`).
 3. **Confidencial**: GeEm Next é exclusivo de um cliente. Nunca publicar nome, CNPJ, pessoas ou valores. Só "indústria de componentes de borracha e plástico, cerca de 40 colaboradores".
 4. Todo texto vive em `src/content/`. Componentes não têm texto fixo.
 5. Só tokens de cor de `src/app/globals.css`. Degradê da marca no máximo 1 vez por página.
