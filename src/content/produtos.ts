@@ -86,7 +86,7 @@ export const produtos: Produto[] = [
       "Cadastros de funcionários, clientes, empresas, prestadores e médicos; empresas preenchidas pelo Cartão CNPJ",
       "Ponto: jornadas, apontamento, espelho e banco de horas",
       "RH das empresas que o escritório atende",
-      "Orçamentos e propostas de honorários, com catálogo de serviços",
+      "Orçamentos e propostas de honorários: catálogo de serviços, honorário-base por porte da empresa, proposta em PDF e por link, com os modelos do próprio escritório",
       "Organograma, instruções de trabalho e procedimentos (IT e POP)",
       "Chat interno da equipe",
       "Início com painéis que cada pessoa monta",
