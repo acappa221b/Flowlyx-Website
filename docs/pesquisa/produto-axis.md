@@ -18,7 +18,7 @@ Lista confirmada pelo Alexandre. Regra do Axis (ADR-0026): só entra o que está
 - Chat interno
 - Atendimento WhatsApp multiatendente (somente reativo: responde quem chama, sem disparos)
 - Notas de serviço NFS-e emitidas pelas próprias empresas atendidas (via ContabOffice)
-- Orçamentos e propostas de honorários com catálogo de serviços (o link para o cliente aprovar e o PDF ainda não existem)
+- Orçamentos e propostas de honorários: catálogo de serviços, honorário-base por porte da empresa (tabela do escritório, faixas de funcionários e faturamento), proposta em PDF e por link para o cliente, com os modelos de proposta do próprio escritório (PDF do Canva convertido em fundo + textos editáveis). Em produção desde 06/11/2026 (Axis P0239 a P0258).
 - Financeiro: contas a pagar e a receber, honorários e contas fixas, fluxo de caixa e DRE
 
 **Não anunciar ainda**: cobrança pelo Asaas do escritório; integração com o Omie e tarefas automáticas do Financeiro; áudio que vira cartão; ligação direta com o relógio de ponto.
